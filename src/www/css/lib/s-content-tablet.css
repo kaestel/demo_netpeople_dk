@@ -1,0 +1,24 @@
+* {
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+}
+
+#content {opacity: 0;}
+#page {opacity: 0;}
+
+
+#header ul.corpnavigation li {padding: 0 11px 0 21px;}
+
+
+#content ul.imagelist {padding-bottom: 20px; text-align: center;}
+
+#content ul.imagelist li a {width: 35px; height: 45px; background-image: url(/img/white/bg_icons_tablet.png); background-position: 10px -135px;}
+#content ul.imagelist li.selected a,
+#content ul.imagelist li a:hover {background-position: 10px -85px;}
+
+
+#content .imagecarousel li.movie .player {z-index: 80; width: 100%; height: 100%; background: green url(/img/white/gx_video_loader.gif) no-repeat center 70%; position: absolute; top: 0; left: 0;}
+#content .imagecarousel li.movie .player video {z-index: 90; width: 100%; height: 100%; position: relative; background: red;}
+
+/* font renders thicker - use less padding */
+.cases #content .detail .pagination div {padding: 0 0 0 24px;}

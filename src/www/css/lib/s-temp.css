@@ -1,0 +1,12 @@
+
+
+
+
+#fullscreen li.movie {position: relative;}
+#fullscreen li.movie .play {position: absolute; left: 50%; top: 50%; margin-left: -49px; margin-top: -49px; width: 98px; height: 98px; background: transparent url(/img/white/bg_bn_play.png) no-repeat top center;}
+#fullscreen li.movie .player {width: 100%; height: 100%; background: black url(/img/white/gx_loader.gif) no-repeat center center; position: absolute; top: 0; left: 0; z-index: 100;}
+#fullscreen li.movie .player video {width: 100%; height: 100%;}
+#fullscreen li.movie .player .playpause {position: absolute; left: 50%; top: 50%; margin-left: -49px; margin-top: -49px; width: 98px; height: 98px; background: transparent url(/img/white/bg_bn_play.png) no-repeat 0 0;}
+#fullscreen li.movie .player.playing .playpause {background-position: 0 -100px;}
+
+#navigation .search {display: none;}

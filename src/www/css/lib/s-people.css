@@ -1,0 +1,58 @@
+
+.people #content #maincontent {border-right: none; width: 960px; padding-top: 52px;}
+.people #content ul.people {padding: 0; font-size: 0; overflow: hidden;}
+.people #content ul.people li {width: 278px; height: 274px; display: block; float: left; overflow: hidden; margin: 0 21px; position: relative; cursor: pointer;}
+
+.people #content ul.people .vcard {padding: 0; overflow: hidden;}
+.people #content ul.people .vcard * {color: #000000; font-style: normal; font-size: 14px;}
+.people #content ul.people .vcard .image {background: #ffffff; width: 278px; height: 224px;}
+.people #content ul.people .vcard .name {font-size: 16px; padding-top: 3px; color: #3C3C34; font-family: Georgia, Times, serif;}
+.people #content ul.people .vcard .tel,
+.people #content ul.people .vcard .email {position: absolute; top: 96px; left: 39px;}
+.people #content ul.people .vcard .email {top: 115px;}
+
+.people #content ul.people .vcard .role,
+.people #content ul.people .vcard .org,
+.people #content ul.people .vcard .description,
+.people #content ul.people .vcard .tel,
+.people #content ul.people .vcard .email {display: none;}
+
+.people #content ul.people ul.tools {text-align: left; position: absolute; top: 202px; right: 2px; overflow: hidden; display: none; font-size: 0; text-align: right;}
+.people #content ul.people ul.tools li {display: inline-block; width: auto; height: auto; padding: 0; margin: 0;}
+.people #content ul.people ul.tools li a {width: 17px; height: 16px; text-indent: -9999px; display: block; text-align: left; overflow: hidden; background: transparent url(/img/white/bg_icons_social.png) no-repeat 3px 0px; padding: 0 3px;}
+.people #content ul.people ul.tools li.twitter a {background-position: 3px -25px;}
+.people #content ul.people ul.tools li.facebook a {background-position: 3px -50px;}
+.people #content ul.people ul.tools li.portfolio a {background-position: 3px -75px;}
+
+
+.person #content #maincontent {border-right: none; width: 960px; padding-top: 52px; position: relative}
+.person #content #maincontent .vcard {padding-bottom: 34px; overflow: hidden;}
+.person #content #maincontent .vcard * {font-size: 14px;}
+.person #content #maincontent .vcard .image {float: left;}
+
+.person #content #maincontent .vcard .name,
+.person #content #maincontent .vcard .tel,
+.person #content #maincontent .vcard .email,
+.person #content #maincontent .vcard .role,
+.person #content #maincontent .vcard .org,
+.person #content #maincontent .vcard .description {padding: 0 0 2px 300px;}
+
+.person #content #maincontent .vcard .name {color: #000000; font-size: 17px;}
+.person #content #maincontent .vcard .role {padding-bottom: 21px;}
+
+.person #content #maincontent ul.tools {text-align: left; position: absolute; top: 54px; right: 21px; overflow: hidden; display: block; font-size: 0; text-align: right;}
+.person #content #maincontent ul.tools li {display: inline-block; width: auto; height: auto; padding: 0; margin: 0;}
+.person #content #maincontent ul.tools li a {width: 17px; height: 16px; text-indent: -9999px; display: block; text-align: left; overflow: hidden; background: transparent url(/img/white/bg_icons_social.png) no-repeat 3px 0px; padding: 0 3px;}
+.person #content #maincontent ul.tools li.twitter a {background-position: 3px -25px;}
+.person #content #maincontent ul.tools li.facebook a {background-position: 3px -50px;}
+.person #content #maincontent ul.tools li.portfolio a {background-position: 3px -75px;}
+
+
+ /*
+.people #content ul.people .vcard .email.people #content ul.people .vcard .tel,
+.people #content ul.people .vcard .email,
+.people #content ul.people ul.tools {
+	-webkit-transform: translate(0,0);
+}
+*/
+

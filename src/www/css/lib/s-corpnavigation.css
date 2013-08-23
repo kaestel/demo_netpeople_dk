@@ -1,0 +1,25 @@
+#header ul.corpnavigation {padding: 53px 21px 24px 21px; list-style: none; overflow:hidden;}
+#header ul.corpnavigation * {font-size: 10.8px; font-family: "GothamMedium", Arial;}
+#header ul.corpnavigation li {float: left; padding: 0 10px 0 16px; background: transparent url(/img/white/bg_icons.png) no-repeat 0 -193px;}
+
+/*
+#header ul.corpnavigation li.net {padding-right: 0; clear: right;}
+#header ul.corpnavigation li.peoplegroup,
+#header ul.corpnavigation li.partners {background: none; padding-left: 0px; clear: left;}
+*/
+
+#header ul.corpnavigation li.relations {padding-right: 0; clear: right;}
+#header ul.corpnavigation li.peoplegroup,
+#header ul.corpnavigation li.retail {background: none; padding-left: 0px; clear: left;}
+
+
+#header ul.corpnavigation li a {float: left; text-decoration: none; line-height: 18px; color: #a0a098;}
+.culture #header ul.corpnavigation li.culture a,
+.dpnp #header ul.corpnavigation li.dpnp a,
+.event #header ul.corpnavigation li.event a,
+.partners #header ul.corpnavigation li.partners a,
+.relations #header ul.corpnavigation li.relations a,
+.retail #header ul.corpnavigation li.retail a,
+.trade #header ul.corpnavigation li.trade a,
+.wdp #header ul.corpnavigation li.wdp a,
+#header ul.corpnavigation li a:hover {color: #ececec;}
