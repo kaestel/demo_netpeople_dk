@@ -33,7 +33,7 @@ Util.Objects["twitter"] = new function() {
 		var twitter_id = u.qs(".follow", e).href.replace("http://twitter.com/", "");
 //		u.bug(twitter_id);
 //		u.Request(e, "https://api.twitter.com/1/statuses/user_timeline.json?screen_name="+twitter_id+"&include_entities=true&include_rts=true&trim_user=true&count=4&", false, "SCRIPT");
-		u.Request(e, "/js/twitter.json", false, "SCRIPT");
+		u.Request(e, "/js/twitter.json");
 
 	
 	}

@@ -1,9 +1,11 @@
 
+/*u.js*/
 var u, Util = u = new function() {}
-u.version = "current";
+u.version = 5;
 u.bug = function() {}
 u.stats = new function() {this.pageView = function(){};this.event = function(){};this.customVar = function(){}}
 
+/*u-debug.js*/
 Util.testURL = function(url) {
 	return true;
 	return document.domain.match(/.local$|^w\./);
@@ -110,6 +112,7 @@ Util.listObjectContent = function(object) {
 Util.nodeId = function(node) {
 	return node.id ? node.id : (node.className ? node.className : (node.name ? node.name : node.nodeName));
 }
+/*u-array-desktop_light.js*/
 if(!Array.prototype.unshift || new Array(1,2).unshift(0) != 3) {
 	Array.prototype.unshift = function(a) {
 		var b;
@@ -139,6 +142,7 @@ if(!Array.prototype.indexOf) {
 	}
 }
 
+/*u-string.js*/
 Util.cutString = function(string, length) {
 	var matches, i;
 	if(string.length <= length) {
@@ -199,6 +203,7 @@ Util.stringOr = function(value, replacement) {
 		return replacement ? replacement : "";
 	}	
 }
+/*u-string-desktop_ie.js*/
 if(String.prototype.trim == undefined) {
 	String.prototype.trim = function() {
 		return this.replace(/^\s+|\s+$/g, "");
@@ -223,6 +228,7 @@ if(String.prototype.substr == undefined || "ABC".substr(-1,1) == "A") {
 	};
 }
 
+/*u-dom.js*/
 Util.getElement = u.ge = function(identifier, target) {
 	var e, i, regexp, t;
 	t = target ? target : document;
@@ -467,6 +473,7 @@ Util.wrapElement = u.we = function(e, wrap, attributes) {
 	return wrap;
 }
 
+/*u-dom-desktop_light.js*/
 Util.getComputedStyle = u.gcs = function(e, attribute) {
 	e.offsetHeight;
 	if(document.defaultView && document.defaultView.getComputedStyle) {
@@ -1587,6 +1594,7 @@ if(document.querySelector == undefined) {
 	}
 }
 
+/*u-system.js*/
 Util.explorer = function(version, scope) {
 	if(document.all) {
 		var undefined;
@@ -1669,6 +1677,7 @@ Util.osx = function() {
 	return (navigator.userAgent.indexOf("OS X") >= 0) ? true : false;
 }
 
+/*u-position.js*/
 Util.absoluteX = u.absX = function(e) {
 	if(e.offsetParent) {
 		return e.offsetLeft + u.absX(e.offsetParent);
@@ -1736,6 +1745,7 @@ Util.pageScrollY = u.scrollY = function() {
 	return window.pageYOffset;
 }
 
+/*u-position-desktop_ie.js*/
 if(window.pageXOffset == undefined && Object.defineProperty) {
 	Object.defineProperty(window, "pageXOffset",
 		{get: function() {
@@ -1753,6 +1763,7 @@ if(window.pageYOffset == undefined && Object.defineProperty) {
 	);
 }
 
+/*u-cookie.js*/
 Util.saveCookie = function(name, value) {
 	document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) +";"
 }
@@ -1767,6 +1778,7 @@ Util.delCookie = function(name) {
 	document.cookie = encodeURIComponent(name) + "=;expires=Thu, 01-Jan-70 00:00:01 GMT";
 }
 
+/*u-hash.js*/
 Util.Hash = u.h = new function() {
 	this.catchEvent = function(callback, node) {
 		this.node = node;
@@ -1835,6 +1847,7 @@ Util.Hash = u.h = new function() {
 	}
 }
 
+/*u-link.js*/
 Util.link = function(e) {
 	var a = (e.nodeName.toLowerCase() == "a" ? e : u.qs("a", e));
 	u.addClass(e, "link");
@@ -1843,6 +1856,7 @@ Util.link = function(e) {
 	u.e.click(e);
 }
 
+/*u-date.js*/
 Util.date = function(format, timestamp, months) {
 	var date = timestamp ? new Date(timestamp) : new Date();
 	if(isNaN(date.getTime())) {
@@ -1874,6 +1888,7 @@ Util.date = function(format, timestamp, months) {
 	});
 };
 
+/*u-flash.js*/
 Util.flash = function(e, url, id, w, h, background) {
 	w = w ? w : e.offsetWidth;
 	h = h ? h : e.offsetHeight;
@@ -1907,6 +1922,7 @@ Util.flash = function(e, url, id, w, h, background) {
 	return obj;
 }
 
+/*u-timer.js*/
 Util.Timer = u.t = new function() {
 	this.actions = new Array();
 	this.objects = new Array();
@@ -1950,6 +1966,7 @@ Util.Timer = u.t = new function() {
 	}
 }
 
+/*u-events.js*/
 Util.Events = u.e = new function() {
 	this.event_pref = typeof(document.ontouchmove) == "undefined" ? "mouse" : "touch";
 	this.kill = function(event) {
@@ -2400,6 +2417,7 @@ Util.Events = u.e = new function() {
 	}
 }
 
+/*u-events-desktop_ie.js*/
 if(document.all) {
 	window.attachedEvents = new Array();
 	window.eventHandler = function() {
@@ -2477,6 +2495,7 @@ if(document.all) {
 	}
 }
 
+/*u-image.js*/
 Util.Image = u.i = new function() {
 	this.load = function(e, src) {
 		var image = new Image();
@@ -2502,6 +2521,7 @@ Util.Image = u.i = new function() {
 	}
 }
 
+/*u-image-desktop_ie.js*/
 u.i.load = function(e, src) {
 	var image = new Image();
 	image.e = e;
@@ -2517,6 +2537,7 @@ u.i.load = function(e, src) {
 	image.src = src;
 }
 
+/*u-animation.js*/
 Util.Animation = u.a = new function() {
 	this.support = function() {
 		var node = document.createElement("div");
@@ -2647,6 +2668,7 @@ Util.Animation = u.a = new function() {
 	}
 }
 
+/*u-animation-desktop_light.js*/
 this.transition = function(e, transition) {
 	var duration = transition.match(/[0-9.]+[ms]+/g);
 	if(duration) {
@@ -2798,6 +2820,7 @@ u.a.translate = function(e, x, y) {
 	e.offsetHeight;
 }
 
+/*u-request.js*/
 Util.createRequestObject = function(type) {
 	var request_object = false;
 		try {
@@ -2962,6 +2985,7 @@ Util.validateResponse = function(response){
 	}
 }
 
+/*u-init-static.js*/
 Util.Objects = u.o = new Object();
 Util.init = function(scope) {
 	var i, e, elements, ij_value;
@@ -2977,6 +3001,7 @@ Util.init = function(scope) {
 	}
 }
 
+/*txt-da.js*/
 u.txt = new Object({
 	"readmore":"Læs mere",
 	"minimize":"Minimér",
@@ -2987,6 +3012,7 @@ u.txt = new Object({
 	"search":"Søg",
 	"months": new Array("januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december")
 });
+/*u-articlesnippet.js*/
 Util.articleSnippet = function(article) {
 	if(article.textContent != undefined && article.textContent.length > 200) {
 		article.preview = u.previewNode(article, 200);
@@ -3102,6 +3128,7 @@ u.previewNode = function(node, max_length) {
 	this.childIterator(preview_node);
 	return preview_node;
 }
+/*u-video.js*/
 Util.videoPlayer = function() {
 	var player = document.createElement("div");
 	u.ac(player, "player");
@@ -3363,6 +3390,7 @@ Util.videoPlayer = function() {
 	u.e.addEvent(player, "mousemove", player.showControls);
 	return player;
 }
+/*i-page-desktop.js*/
 Util.Objects["page"] = new function() {
 	this.init = function(e) {
 		var i, node;
@@ -3399,62 +3427,6 @@ Util.Objects["page"] = new function() {
 		if(corp) {
 			e.hN.insertBefore(corp, e.home);
 		}
-		var languages = u.qs(".languages", e.hN);
-		if(languages) {
-			e.nN.appendChild(languages);
-		}
-		e.search = u.ae(e.nN, "div", "search");
-		e.search.e = e;
-		e.search.url = u.qs(".servicenavigation .search a").href;
-		e.search.Response = function(response) {
-			this.form = this.appendChild(u.qs("#content form.search", response));
-			this.form.onsubmit = function() {return false;}
-			this.input = u.qs("input.search", this);
-			this.input.e = this;
-			this.input.onfocus = function() {
-				this.focused = true;
-				u.ac(this.e, "focus");
-			}
-			this.input.onblur = function() {
-				this.focused = false;
-				u.rc(this.e, "focus");
-			}
-			this.onmouseover = function() {
-				u.ac(this, "focus");
-			}
-			this.onmouseout = function() {
-				if(!this.input.focused) {
-					u.rc(this, "focus");
-				}
-			}
-			this.onkeydown = function(event) {
-				if(event.keyCode == 13) {
-					u.e.kill(event);
-					if(this.input.value) {
-						location.hash = u.h.cleanHash(this.form.action + "/" + this.input.value);
-					}
-					else {
-						this.input.focus();
-					}
-				}
-			}
-			var button = u.qs(".submit", this);
-			button.e = this;
-			u.e.click(button);
-			button.clicked = function(event) {
-				u.e.kill(event);
-				if(this.e.input.value) {
-					location.hash = u.h.cleanHash(this.e.form.action + "/" + this.e.input.value);
-				}
-				else {
-					this.e.input.focus();
-				}
-				return false;
-			}
-		}
-		u.Request(e.search, e.search.url);
-		e.hN.removeChild(u.qs(".servicenavigation", e.hN));
-		e.fN.removeChild(u.qs(".servicenavigation", e.fN));
 		var navNodes = u.qsa("li", e.nN);
 		for(i = 0; navNode = navNodes[i]; i++) {
 			u.link(navNode);
@@ -3462,6 +3434,12 @@ Util.Objects["page"] = new function() {
 				location.hash = u.h.cleanHash(this.url);
 			}
 		}
+		var languages = u.qs(".languages", e.hN);
+		if(languages) {
+			e.nN.appendChild(languages);
+		}
+		e.hN.removeChild(u.qs(".servicenavigation", e.hN));
+		e.fN.removeChild(u.qs(".servicenavigation", e.fN));
 		e.ready = function() {
 			u.t.resetTimer(document.t_error);
 			u.h.catchEvent(this.cN.navigate, this.cN);
@@ -3526,6 +3504,7 @@ Util.Objects["page"] = new function() {
 }
 window.onload = function() {u.o.page.init(u.qs("#page"));}
 
+/*i-content-desktop.js*/
 Util.Objects["content"] = new function() {
 	this.init = function(e) {
 		var page = u.qs("#page");
@@ -3537,6 +3516,7 @@ Util.Objects["content"] = new function() {
 	}
 }
 
+/*i-front-desktop.js*/
 Util.Objects["front"] = new function() {
 	this.init = function(e) {
 		var page = u.qs("#page");
@@ -3642,6 +3622,7 @@ Util.Objects["front"] = new function() {
 	}
 }
 
+/*i-about.js*/
 Util.Objects["about"] = new function() {
 	this.init = function(e) {
 		var page = u.qs("#page");
@@ -3655,6 +3636,7 @@ Util.Objects["about"] = new function() {
 		e.ready();
 	}
 }
+/*i-jobs.js*/
 Util.Objects["jobs"] = new function() {
 	this.init = function(e) {
 		var node, i;
@@ -3683,6 +3665,7 @@ Util.Objects["jobs"] = new function() {
 		e.ready();
 	}
 }
+/*i-people.js*/
 Util.Objects["people"] = new function() {
 	this.init = function(e) {
 		var node, i;
@@ -3797,6 +3780,7 @@ Util.Objects["people"] = new function() {
 		e.ready();
 	}
 }
+/*i-cases.js*/
 Util.Objects["cases"] = new function() {
 	this.init = function(e) {
 		var i, node;
@@ -4067,6 +4051,7 @@ Util.Objects["cases"] = new function() {
 	}
 }
 
+/*i-contact.js*/
 Util.Objects["contact"] = new function() {
 	this.init = function(e) {
 		var page = u.qs("#page");
@@ -4095,6 +4080,7 @@ Util.Objects["contact"] = new function() {
 		e.ready();
 	}
 }
+/*i-search-desktop.js*/
 Util.Objects["search"] = new function() {
 	this.init = function(e) {
 		var page = u.qs("#page");
@@ -4117,6 +4103,7 @@ Util.Objects["search"] = new function() {
 		e.ready();
 	}
 }
+/*i-imagelist.js*/
 Util.Objects["imagelist"] = new function() {
 	this.init = function(list) {
 		var i, node;
@@ -4520,6 +4507,7 @@ Util.Objects["imagelist"] = new function() {
 		list.selectImage(list.current_image);
 	}
 }
+/*i-sharing.js*/
 Util.Objects["sharing"] = new function() {
 	this.init = function(tools) {
 		var page = u.qs("#page");
@@ -4608,6 +4596,7 @@ Util.Objects["sharing"] = new function() {
 	}
 }
 
+/*i-twitter.js*/
 Util.Objects["twitter"] = new function() {
 	this.init = function(e) {
 		e.Response = function(response) {
@@ -4623,47 +4612,11 @@ Util.Objects["twitter"] = new function() {
 			}
 		}
 		var twitter_id = u.qs(".follow", e).href.replace("http://twitter.com/", "");
-		u.Request(e, "https://api.twitter.com/1/statuses/user_timeline.json?screen_name="+twitter_id+"&include_entities=true&include_rts=true&trim_user=true&count=4&", false, "SCRIPT");
+		u.Request(e, "/js/twitter.json");
 	}
 }
 
-u.ga_account = 'UA-31194908-1';
-
-if(u.ga_account) {
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', u.ga_account]);
-	_gaq.push(['_trackPageview']);
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-	u.stats = new function() {
-		this.pageView = function(url) {
-			_gaq.push(['_trackPageview', url]);
-		}
-		this.event = function(node, action, label) {
-			_gaq.push(['_trackEvent', location.href.replace(document.location.protocol + "//" + document.domain, ""), action, (label ? label : this.nodeSnippet(node))]);
-		}
-		this.customVar = function(slot, name, value, scope) {
-			_gaq.push(['_setCustomVar',
-			      slot,		// This custom var is set to slot #1.  Required parameter.
-			      name,		// The name of the custom variable.  Required parameter.
-			      value,	// The value of the custom variable.  Required parameter.
-			      scope		// Sets the scope to visitor-level.  Optional parameter.
-			 ]);
-		}
-		this.nodeSnippet = function(e) {
-			if(e.textContent != undefined) {
-				return u.cutString(e.textContent.trim(), 20) + "(<"+e.nodeName+">)";
-			}
-			else {
-				return u.cutString(e.innerText.trim(), 20) + "(<"+e.nodeName+">)";
-			}
-		}
-	}
-}
-
+/*js?sensor=true*/
 window.google = window.google || {};
 google.maps = google.maps || {};
 (function() {
@@ -4677,8 +4630,8 @@ google.maps = google.maps || {};
   };
   google.maps.Load = function(apiLoad) {
     delete google.maps.Load;
-    apiLoad([0.009999999776482582,[[["http://mt0.googleapis.com/vt?lyrs=m@199000000\u0026src=api\u0026hl=en-US\u0026","http://mt1.googleapis.com/vt?lyrs=m@199000000\u0026src=api\u0026hl=en-US\u0026"],null,null,null,null,"m@199000000"],[["http://khm0.googleapis.com/kh?v=122\u0026hl=en-US\u0026","http://khm1.googleapis.com/kh?v=122\u0026hl=en-US\u0026"],null,null,null,1,"122"],[["http://mt0.googleapis.com/vt?lyrs=h@199000000\u0026src=api\u0026hl=en-US\u0026","http://mt1.googleapis.com/vt?lyrs=h@199000000\u0026src=api\u0026hl=en-US\u0026"],null,null,"imgtp=png32\u0026",null,"h@199000000"],[["http://mt0.googleapis.com/vt?lyrs=t@129,r@199000000\u0026src=api\u0026hl=en-US\u0026","http://mt1.googleapis.com/vt?lyrs=t@129,r@199000000\u0026src=api\u0026hl=en-US\u0026"],null,null,null,null,"t@129,r@199000000"],null,[[null,0,7,7,[[[330000000,1246050000],[386200000,1293600000]],[[366500000,1297000000],[386200000,1314843700]]],["http://mt0.gmaptiles.co.kr/mt?v=kr1.17\u0026hl=en-US\u0026","http://mt1.gmaptiles.co.kr/mt?v=kr1.17\u0026hl=en-US\u0026"]],[null,0,8,8,[[[330000000,1246050000],[386200000,1279600000]],[[345000000,1279600000],[386200000,1286700000]],[[354690000,1286700000],[386200000,1314843700]]],["http://mt0.gmaptiles.co.kr/mt?v=kr1.17\u0026hl=en-US\u0026","http://mt1.gmaptiles.co.kr/mt?v=kr1.17\u0026hl=en-US\u0026"]],[null,0,9,9,[[[330000000,1246050000],[386200000,1279600000]],[[340000000,1279600000],[386200000,1286700000]],[[348900000,1286700000],[386200000,1302000000]],[[368300000,1302000000],[386200000,1314843700]]],["http://mt0.gmaptiles.co.kr/mt?v=kr1.17\u0026hl=en-US\u0026","http://mt1.gmaptiles.co.kr/mt?v=kr1.17\u0026hl=en-US\u0026"]],[null,0,10,19,[[[329890840,1246055600],[386930130,1284960940]],[[344646740,1284960940],[386930130,1288476560]],[[350277470,1288476560],[386930130,1310531620]],[[370277730,1310531620],[386930130,1314843700]]],["http://mt0.gmaptiles.co.kr/mt?v=kr1.17\u0026hl=en-US\u0026","http://mt1.gmaptiles.co.kr/mt?v=kr1.17\u0026hl=en-US\u0026"]],[null,3,7,7,[[[330000000,1246050000],[386200000,1293600000]],[[366500000,1297000000],[386200000,1314843700]]],["http://mt0.gmaptiles.co.kr/mt?v=kr1p.17\u0026hl=en-US\u0026","http://mt1.gmaptiles.co.kr/mt?v=kr1p.17\u0026hl=en-US\u0026"]],[null,3,8,8,[[[330000000,1246050000],[386200000,1279600000]],[[345000000,1279600000],[386200000,1286700000]],[[354690000,1286700000],[386200000,1314843700]]],["http://mt0.gmaptiles.co.kr/mt?v=kr1p.17\u0026hl=en-US\u0026","http://mt1.gmaptiles.co.kr/mt?v=kr1p.17\u0026hl=en-US\u0026"]],[null,3,9,9,[[[330000000,1246050000],[386200000,1279600000]],[[340000000,1279600000],[386200000,1286700000]],[[348900000,1286700000],[386200000,1302000000]],[[368300000,1302000000],[386200000,1314843700]]],["http://mt0.gmaptiles.co.kr/mt?v=kr1p.17\u0026hl=en-US\u0026","http://mt1.gmaptiles.co.kr/mt?v=kr1p.17\u0026hl=en-US\u0026"]],[null,3,10,null,[[[329890840,1246055600],[386930130,1284960940]],[[344646740,1284960940],[386930130,1288476560]],[[350277470,1288476560],[386930130,1310531620]],[[370277730,1310531620],[386930130,1314843700]]],["http://mt0.gmaptiles.co.kr/mt?v=kr1p.17\u0026hl=en-US\u0026","http://mt1.gmaptiles.co.kr/mt?v=kr1p.17\u0026hl=en-US\u0026"]]],[["http://cbk0.googleapis.com/cbk?","http://cbk1.googleapis.com/cbk?"]],[["http://khm0.googleapis.com/kh?v=67\u0026hl=en-US\u0026","http://khm1.googleapis.com/kh?v=67\u0026hl=en-US\u0026"],null,null,null,null,"67"],[["http://mt0.googleapis.com/mapslt?hl=en-US\u0026","http://mt1.googleapis.com/mapslt?hl=en-US\u0026"]],[["http://mt0.googleapis.com/mapslt/ft?hl=en-US\u0026","http://mt1.googleapis.com/mapslt/ft?hl=en-US\u0026"]],[["http://mt0.googleapis.com/vt?hl=en-US\u0026","http://mt1.googleapis.com/vt?hl=en-US\u0026"]]],["en-US","US",null,0,null,null,"http://maps.gstatic.com/mapfiles/","http://csi.gstatic.com","https://maps.googleapis.com","http://maps.googleapis.com"],["http://maps.gstatic.com/intl/en_us/mapfiles/api-3/10/18","3.10.18"],[2604365144],1.0,null,null,null,null,1,"",null,null,0,"http://khm.googleapis.com/mz?v=122\u0026",null,"https://earthbuilder.google.com","https://earthbuilder.googleapis.com"], loadScriptTime);
+    apiLoad([0.009999999776482582,[[["http://mt0.googleapis.com/vt?lyrs=m@228000000\u0026src=api\u0026hl=en-US\u0026","http://mt1.googleapis.com/vt?lyrs=m@228000000\u0026src=api\u0026hl=en-US\u0026"],null,null,null,null,"m@228000000"],[["http://khm0.googleapis.com/kh?v=135\u0026hl=en-US\u0026","http://khm1.googleapis.com/kh?v=135\u0026hl=en-US\u0026"],null,null,null,1,"135"],[["http://mt0.googleapis.com/vt?lyrs=h@228000000\u0026src=api\u0026hl=en-US\u0026","http://mt1.googleapis.com/vt?lyrs=h@228000000\u0026src=api\u0026hl=en-US\u0026"],null,null,null,null,"h@228000000"],[["http://mt0.googleapis.com/vt?lyrs=t@131,r@228000000\u0026src=api\u0026hl=en-US\u0026","http://mt1.googleapis.com/vt?lyrs=t@131,r@228000000\u0026src=api\u0026hl=en-US\u0026"],null,null,null,null,"t@131,r@228000000"],null,null,[["http://cbk0.googleapis.com/cbk?","http://cbk1.googleapis.com/cbk?"]],[["http://khm0.googleapis.com/kh?v=80\u0026hl=en-US\u0026","http://khm1.googleapis.com/kh?v=80\u0026hl=en-US\u0026"],null,null,null,null,"80"],[["http://mt0.googleapis.com/mapslt?hl=en-US\u0026","http://mt1.googleapis.com/mapslt?hl=en-US\u0026"]],[["http://mt0.googleapis.com/mapslt/ft?hl=en-US\u0026","http://mt1.googleapis.com/mapslt/ft?hl=en-US\u0026"]],[["http://mt0.googleapis.com/vt?hl=en-US\u0026","http://mt1.googleapis.com/vt?hl=en-US\u0026"]],[["http://mt0.googleapis.com/mapslt/loom?hl=en-US\u0026","http://mt1.googleapis.com/mapslt/loom?hl=en-US\u0026"]],[["https://mts0.googleapis.com/mapslt?hl=en-US\u0026","https://mts1.googleapis.com/mapslt?hl=en-US\u0026"]],[["https://mts0.googleapis.com/mapslt/ft?hl=en-US\u0026","https://mts1.googleapis.com/mapslt/ft?hl=en-US\u0026"]]],["en-US","US",null,0,null,null,"http://maps.gstatic.com/mapfiles/","http://csi.gstatic.com","https://maps.googleapis.com","http://maps.googleapis.com"],["http://maps.gstatic.com/intl/en_us/mapfiles/api-3/14/0","3.14.0"],[2472819451],1,null,null,null,null,1,"",null,null,0,"http://khm.googleapis.com/mz?v=135\u0026",null,"https://earthbuilder.googleapis.com","https://earthbuilder.googleapis.com",null,"http://mt.googleapis.com/vt/icon",[["http://mt0.googleapis.com/vt","http://mt1.googleapis.com/vt"],["https://mts0.googleapis.com/vt","https://mts1.googleapis.com/vt"],[null,[[0,"m",228000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[47],[37,[["smartmaps"]]]]],0],[null,[[0,"m",228000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[47],[37,[["smartmaps"]]]]],3],[null,[[0,"h",228000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[50],[37,[["smartmaps"]]]]],0],[null,[[0,"h",228000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[50],[37,[["smartmaps"]]]]],3],[null,[[4,"t",131],[0,"r",131000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[5],[37,[["smartmaps"]]]]],0],[null,[[4,"t",131],[0,"r",131000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[5],[37,[["smartmaps"]]]]],3],[null,null,[null,"en-US","US",null,18],0],[null,null,[null,"en-US","US",null,18],3],[null,null,[null,"en-US","US",null,18],6],[null,null,[null,"en-US","US",null,18],0]]], loadScriptTime);
   };
   var loadScriptTime = (new Date).getTime();
-  getScript("http://maps.gstatic.com/intl/en_us/mapfiles/api-3/10/18/main.js");
+  getScript("http://maps.gstatic.com/intl/en_us/mapfiles/api-3/14/0/main.js");
 })();
