@@ -24,13 +24,13 @@ Util.Objects["contact"] = new function() {
 			center: latlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			mapTypeControlOptions: {
-				style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR  
+				style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
 			}
 		};
 		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 		var marker = new google.maps.Marker({
-			position: latlng, 
-			map: map, 
+			position: latlng,
+			map: map,
 			title:"Vester Farimagsgade 41"
 		});
 
